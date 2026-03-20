@@ -4,551 +4,1145 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Team Schedules — Beycome</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Deploy to: https://github.com/samodiofl-boop/schedules -->
+<!-- Live URL: https://samodiofl-boop.github.io/schedules -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:      #f5f6f8;
-    --surface: #ffffff;
-    --border:  #e5e7eb;
-    --navy:    #152330;
-    --muted:   #6b7280;
-    --orange:  #ff9b77;
-    --green:   #22c55e;
-    --blue:    #7d8ff7;
-    --amber:   #f59e0b;
-    --purple:  #a78bfa;
+    --bg:           #f5f6f8;
+    --surface:      #ffffff;
+    --surface2:     #f9fafb;
+    --border:       #e5e7eb;
+    --border2:      #d1d5db;
+    --navy:         #152330;
+    --navy-mid:     #2d4050;
+    --muted:        #6b7280;
+    --subtle:       #9ca3af;
+
+    --orange:       #ff9b77;
+    --orange-dim:   rgba(255,155,119,0.12);
+    --orange-border:rgba(255,155,119,0.4);
+
+    --blue:         #7d8ff7;
+    --blue-dim:     rgba(125,143,247,0.12);
+    --blue-border:  rgba(125,143,247,0.4);
+
+    --green:        #22c55e;
+    --green-dim:    rgba(34,197,94,0.10);
+    --green-border: rgba(34,197,94,0.35);
+
+    --teal:         #14b8a6;
+    --teal-dim:     rgba(20,184,166,0.10);
+    --teal-border:  rgba(20,184,166,0.35);
+
+    --purple:       #a78bfa;
+    --purple-dim:   rgba(167,139,250,0.12);
+    --purple-border:rgba(167,139,250,0.4);
+
+    --amber:        #f59e0b;
+    --amber-dim:    rgba(245,158,11,0.10);
+    --amber-border: rgba(245,158,11,0.35);
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--navy); font-size: 14px; }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--bg);
+    color: var(--navy);
+    min-height: 100vh;
+    padding-bottom: 80px;
+  }
 
   /* ── Topbar ── */
   .topbar {
-    background: var(--navy);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
-    height: 52px;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
-  .topbar-left { display: flex; align-items: center; gap: 16px; }
-  .topbar-label { color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
-  .topbar a { color: rgba(255,255,255,0.5); font-size: 12px; text-decoration: none; }
-  .topbar a:hover { color: var(--orange); }
+  .topbar-left { display: flex; align-items: center; gap: 12px; }
+  .logo {
+    display: flex; align-items: center; gap: 8px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 32px; height: 32px;
+    background: var(--orange);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-icon svg { width: 18px; height: 18px; fill: #fff; }
+  .brand { font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: -0.3px; }
+  .topbar-divider { width: 1px; height: 20px; background: var(--border); }
+  .topbar-label { font-size: 13px; color: var(--muted); font-weight: 400; }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .badge {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    padding: 4px 10px; border-radius: 20px;
+  }
+  .badge-orange { background: var(--orange-dim); color: var(--orange); border: 1px solid var(--orange-border); }
+  .badge-blue   { background: var(--blue-dim);   color: var(--blue);   border: 1px solid var(--blue-border); }
+  .badge-green  { background: var(--green-dim);  color: var(--green);  border: 1px solid var(--green-border); }
+  .gh-link {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--muted);
+    text-decoration: none;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all .15s;
+    font-weight: 500;
+  }
+  .gh-link:hover { color: var(--navy); border-color: var(--border2); background: var(--surface2); }
 
-  /* ── Dept tabs ── */
-  .dept-tabs {
+  /* ── Dept Nav ── */
+  .dept-nav {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
+    padding: 0 40px;
     display: flex;
-    padding: 0 24px;
+    gap: 0;
+    position: sticky;
+    top: 60px;
+    z-index: 99;
   }
   .dept-tab {
-    padding: 14px 20px;
-    font-size: 13px;
+    padding: 14px 24px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--muted);
     cursor: pointer;
+    border: none;
+    background: none;
     border-bottom: 2px solid transparent;
-    transition: color 0.15s, border-color 0.15s;
-    user-select: none;
-  }
-  .dept-tab.active { color: var(--navy); border-bottom-color: var(--orange); }
-  .dept-tab:hover:not(.active) { color: var(--navy); }
-
-  /* ── Week nav ── */
-  .week-nav {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
+    transition: all .15s;
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 10px 24px;
+    gap: 8px;
+    margin-bottom: -1px;
   }
-  .week-btn {
-    padding: 5px 14px;
-    font-size: 12px;
-    font-weight: 500;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .week-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
-  .week-btn:hover:not(.active) { border-color: #9ca3af; color: var(--navy); }
+  .dept-tab:hover { color: var(--navy); }
+  .dept-tab.active { color: var(--orange); border-bottom-color: var(--orange); }
+  .dept-tab .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .dot-mls { background: var(--orange); }
+  .dot-cs  { background: var(--blue); }
 
-  /* ── Content ── */
-  .dept-panel { display: none; padding: 24px; }
-  .dept-panel.active { display: block; }
-  .week-panel { display: none; }
+  /* ── Hero ── */
+  .hero {
+    padding: 48px 40px 36px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px; color: var(--orange);
+    letter-spacing: .12em; text-transform: uppercase;
+    margin-bottom: 12px; font-weight: 500;
+  }
+  .hero h1 {
+    font-size: 36px; font-weight: 700; color: var(--navy);
+    letter-spacing: -0.6px; line-height: 1.15; margin-bottom: 10px;
+  }
+  .hero h1 em { font-style: normal; color: var(--orange); }
+  .hero p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 560px; }
+
+  /* ── Dept Section ── */
+  .dept-section { display: none; }
+  .dept-section.active { display: block; }
+
+  /* ── Section container ── */
+  .section { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  .section-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: 16px; font-weight: 500;
+  }
+
+  /* ── Dept header ── */
+  .dept-header {
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 40px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .dept-title-wrap { display: flex; align-items: center; gap: 14px; }
+  .dept-icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .dept-icon-mls { background: var(--orange-dim); border: 1px solid var(--orange-border); }
+  .dept-icon-cs  { background: var(--blue-dim);   border: 1px solid var(--blue-border); }
+  .dept-icon svg { width: 22px; height: 22px; }
+  .dept-title { font-size: 22px; font-weight: 700; color: var(--navy); letter-spacing: -0.3px; }
+  .dept-subtitle { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .dept-meta { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+
+  /* ── Agent cards ── */
+  .agents-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 40px; }
+  .agents-grid-5 { grid-template-columns: repeat(5, 1fr); }
+
+  .agent-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px;
+    transition: box-shadow .2s, border-color .2s;
+  }
+  .agent-card:hover { border-color: var(--border2); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .agent-card.highlight-orange { border-color: var(--orange-border); background: linear-gradient(135deg, #fff 60%, rgba(255,155,119,0.04)); }
+  .agent-card.highlight-blue   { border-color: var(--blue-border);   background: linear-gradient(135deg, #fff 60%, rgba(125,143,247,0.04)); }
+
+  .agent-name { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 3px; display: flex; align-items: center; gap: 8px; }
+  .agent-tag  { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+  .tag-orange { background: var(--orange-dim); color: var(--orange); border: 1px solid var(--orange-border); }
+  .tag-blue   { background: var(--blue-dim);   color: var(--blue);   border: 1px solid var(--blue-border); }
+  .tag-teal   { background: var(--teal-dim);   color: var(--teal);   border: 1px solid var(--teal-border); }
+
+  .agent-hours { font-family: 'Roboto Mono', monospace; font-size: 12px; color: var(--orange); margin-bottom: 14px; font-weight: 500; }
+  .agent-meta { display: flex; flex-direction: column; gap: 6px; }
+  .agent-meta-row { display: flex; justify-content: space-between; font-size: 12px; }
+  .agent-meta-row .k { color: var(--muted); }
+  .agent-meta-row .v { color: var(--navy); font-weight: 600; text-align: right; }
+  .agent-divider { height: 1px; background: var(--border); margin: 10px 0; }
+  .agent-ot { font-size: 11px; font-weight: 600; margin-top: 2px; }
+  .ot-orange { color: var(--orange); }
+  .ot-blue   { color: var(--blue); }
+  .ot-amber  { color: var(--amber); }
+  .ot-teal   { color: var(--teal); }
+
+  /* ── Week nav ── */
+  .week-nav { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .week-btn {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px; font-weight: 500;
+    padding: 8px 18px; border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted); cursor: pointer;
+    transition: all .15s;
+  }
+  .week-btn:hover { border-color: var(--border2); color: var(--navy); }
+  .week-btn.active { background: var(--orange); color: #fff; border-color: var(--orange); }
+
+  /* ── Schedule table ── */
+  .week-panel { display: none; margin-bottom: 48px; }
   .week-panel.active { display: block; }
 
-  /* ── Table ── */
-  .sched-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-  thead tr { background: #f9fafb; border-bottom: 2px solid var(--border); }
-  th {
-    padding: 10px 16px;
-    text-align: left;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-  th:first-child { min-width: 140px; }
-  td {
-    padding: 10px 16px;
-    border-bottom: 1px solid #f3f4f6;
-    vertical-align: middle;
-    white-space: nowrap;
-  }
-  tr:last-child td { border-bottom: none; }
-  tbody tr:hover td { background: #fafafa; }
-  .agent-name { font-weight: 500; }
+  .week-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 16px; flex-wrap: wrap; }
+  .week-title-main { font-size: 20px; font-weight: 700; color: var(--navy); letter-spacing: -0.3px; }
+  .week-title-sub  { font-size: 13px; color: var(--muted); }
+  .week-badge { margin-left: auto; font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 8px; }
 
-  /* ── Dots & dashes ── */
-  .dot {
-    display: inline-block;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    vertical-align: middle;
+  .schedule-table {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
   }
-  .dot-green  { background: var(--green); }
-  .dot-orange { background: var(--orange); }
-  .dot-blue   { background: var(--blue); }
-  .off-dash { color: #d1d5db; font-weight: 400; }
-
-  /* ── Cell pills (OT / special labels only) ── */
-  .cell-pill {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 2px 7px;
-    border-radius: 10px;
-    margin-left: 5px;
-    vertical-align: middle;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
+  .schedule-table th {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); padding: 12px 14px;
+    text-align: center; font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
   }
-  .pill-ot     { background: rgba(245,158,11,0.12); color: #92400e; }
-  .pill-calls  { background: rgba(125,143,247,0.12); color: #3730a3; }
-  .pill-tickets{ background: rgba(167,139,250,0.12); color: #5b21b6; }
+  .schedule-table th.col-agent { text-align: left; width: 200px; }
+  .schedule-table th.col-sat { background: var(--amber-dim); color: var(--amber); border-bottom-color: var(--amber-border); }
+  .schedule-table th.col-sun { background: var(--purple-dim); color: var(--purple); border-bottom-color: var(--purple-border); }
+  .schedule-table th.col-mon { background: rgba(239,68,68,0.06); color: #ef4444; border-bottom-color: rgba(239,68,68,0.3); }
 
-  /* ── Standing rules ── */
-  .rules-section { margin-top: 20px; }
-  .rules-title { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-  .rules-list { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 20px; }
-  .rules-list li { font-size: 12px; color: #374151; display: flex; align-items: center; gap: 6px; }
-  .rules-list li::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+  .schedule-table td {
+    padding: 14px; text-align: center;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle; font-size: 13px;
+  }
+  .schedule-table tr:last-child td { border-bottom: none; }
+  .schedule-table td.col-agent { text-align: left; }
+  .schedule-table td.col-sat { background: rgba(245,158,11,0.03); }
+  .schedule-table td.col-sun { background: rgba(167,139,250,0.03); }
+  .schedule-table td.col-mon { background: rgba(239,68,68,0.03); }
+
+  .schedule-table tr:hover td { background: var(--surface2); }
+  .schedule-table tr:hover td.col-sat { background: rgba(245,158,11,0.05); }
+  .schedule-table tr:hover td.col-sun { background: rgba(167,139,250,0.05); }
+  .schedule-table tr:hover td.col-mon { background: rgba(239,68,68,0.05); }
+
+  .agent-cell { display: flex; flex-direction: column; gap: 2px; }
+  .agent-cell-name  { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .agent-cell-hours { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--muted); }
+
+  /* ── Pills ── */
+  .pill {
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 6px; font-size: 11px; font-weight: 600;
+    padding: 4px 10px; white-space: nowrap;
+    font-family: 'Roboto', sans-serif;
+  }
+  /* MLS pills */
+  .pill-work      { background: var(--green-dim);   color: #15803d;   border: 1px solid var(--green-border); }
+  .pill-awork     { background: rgba(255,155,119,0.10); color: #c2410c; border: 1px solid rgba(255,155,119,0.3); }
+  .pill-asat      { background: var(--orange-dim);  color: var(--orange); border: 1px solid var(--orange-border); }
+  .pill-mwork     { background: var(--blue-dim);    color: #4338ca;   border: 1px solid var(--blue-border); }
+  .pill-ot-sat    { background: var(--amber-dim);   color: var(--amber);  border: 1px solid var(--amber-border); }
+  .pill-ot-sun    { background: var(--purple-dim);  color: var(--purple); border: 1px solid var(--purple-border); }
+  .pill-off       { background: #f3f4f6; color: var(--subtle); border: 1px solid var(--border); }
+  .pill-off-a     { background: #f9fafb; color: #d1d5db;       border: 1px solid #f3f4f6; }
+  /* CS pills */
+  .pill-cs-work   { background: var(--teal-dim);    color: #0f766e;   border: 1px solid var(--teal-border); }
+  .pill-cs-calls  { background: var(--orange-dim);  color: #c2410c;   border: 1px solid var(--orange-border); }
+  .pill-cs-tickets{ background: var(--blue-dim);    color: #4338ca;   border: 1px solid var(--blue-border); }
+
+  /* ── Rules box ── */
+  .rules-bar { max-width: 1200px; margin: 8px auto 48px; padding: 0 40px; }
+  .rules-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px 24px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px 40px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .rule-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .rule-dot  { width: 5px; height: 5px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+  .rule-dot-orange { background: var(--orange); }
+  .rule-dot-blue   { background: var(--blue); }
+  .rule-item strong { color: var(--navy); }
+
+  /* ── Legend ── */
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+
+  /* ── Section divider ── */
+  .dept-divider {
+    max-width: 1200px; margin: 0 auto 32px;
+    padding: 0 40px;
+  }
+  .dept-divider-line {
+    height: 1px; background: var(--border);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1000px) {
+    .agents-grid-5 { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .topbar, .dept-nav { padding: 0 20px; }
+    .hero { padding: 32px 20px 24px; }
+    .hero h1 { font-size: 26px; }
+    .section, .rules-bar, .dept-header, .dept-divider { padding-left: 20px; padding-right: 20px; }
+    .agents-grid { grid-template-columns: 1fr 1fr; }
+    .agents-grid-5 { grid-template-columns: 1fr 1fr; }
+    .rules-box { grid-template-columns: 1fr; }
+    .schedule-table { font-size: 11px; }
+    .schedule-table th, .schedule-table td { padding: 10px 8px; }
+    .dept-meta { display: none; }
+  }
+  @media (max-width: 600px) {
+    .agents-grid, .agents-grid-5 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 22px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- Topbar -->
-<header class="topbar">
+<!-- ══ Topbar ══ -->
+<div class="topbar">
   <div class="topbar-left">
-    <!-- beycome wordmark SVG -->
-    <svg width="120" height="23" viewBox="0 0 99 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8.25 0C3.69 0 0 3.69 0 8.25C0 12.81 3.69 16.5 8.25 16.5C12.81 16.5 16.5 12.81 16.5 8.25C16.5 3.69 12.81 0 8.25 0ZM8.25 14.85C4.60 14.85 1.65 11.90 1.65 8.25C1.65 4.60 4.60 1.65 8.25 1.65C11.90 1.65 14.85 4.60 14.85 8.25C14.85 11.90 11.90 14.85 8.25 14.85Z" fill="#FF9B77"/>
-      <path d="M8.25 3.30C5.51 3.30 3.30 5.51 3.30 8.25C3.30 10.99 5.51 13.20 8.25 13.20C10.99 13.20 13.20 10.99 13.20 8.25C13.20 5.51 10.99 3.30 8.25 3.30Z" fill="#FF9B77"/>
-      <path d="M23.10 14.52V3.96H26.07C27.39 3.96 28.38 4.26 29.04 4.86C29.70 5.46 30.03 6.27 30.03 7.29C30.03 7.92 29.88 8.46 29.58 8.91C29.28 9.36 28.89 9.69 28.41 9.90C28.98 10.08 29.43 10.44 29.76 10.98C30.09 11.52 30.255 12.12 30.255 12.78C30.255 13.80 29.91 14.61 29.22 15.21C28.53 15.81 27.555 16.11 26.295 16.11H23.10V14.52ZM24.87 9.27H26.10C26.76 9.27 27.27 9.105 27.63 8.775C27.99 8.445 28.17 8.01 28.17 7.47C28.17 6.93 27.99 6.495 27.63 6.165C27.27 5.835 26.76 5.67 26.10 5.67H24.87V9.27ZM24.87 14.34H26.265C26.985 14.34 27.54 14.16 27.93 13.80C28.32 13.44 28.515 12.975 28.515 12.405C28.515 11.835 28.32 11.37 27.93 11.01C27.54 10.65 26.985 10.47 26.265 10.47H24.87V14.34Z" fill="#070707"/>
-      <path d="M37.80 16.29C36.93 16.29 36.15 16.095 35.46 15.705C34.77 15.315 34.23 14.775 33.84 14.085C33.45 13.395 33.255 12.60 33.255 11.70C33.255 10.80 33.45 10.005 33.84 9.315C34.23 8.625 34.77 8.085 35.46 7.695C36.15 7.305 36.93 7.11 37.80 7.11C38.67 7.11 39.45 7.305 40.14 7.695C40.83 8.085 41.37 8.625 41.76 9.315C42.15 10.005 42.345 10.80 42.345 11.70C42.345 12.60 42.15 13.395 41.76 14.085C41.37 14.775 40.83 15.315 40.14 15.705C39.45 16.095 38.67 16.29 37.80 16.29ZM37.80 14.70C38.49 14.70 39.045 14.46 39.465 13.98C39.885 13.50 40.095 12.87 40.095 12.09V11.31C40.095 10.53 39.885 9.90 39.465 9.42C39.045 8.94 38.49 8.70 37.80 8.70C37.11 8.70 36.555 8.94 36.135 9.42C35.715 9.90 35.505 10.53 35.505 11.31V12.09C35.505 12.87 35.715 13.50 36.135 13.98C36.555 14.46 37.11 14.70 37.80 14.70Z" fill="#070707"/>
-      <path d="M46.26 19.00L48.06 14.97L44.37 7.29H46.53L49.02 12.87L51.51 7.29H53.67L48.42 19.00H46.26Z" fill="#070707"/>
-      <path d="M55.17 16.11V7.29H56.82L56.94 8.61C57.21 8.13 57.585 7.755 58.065 7.485C58.545 7.215 59.085 7.08 59.685 7.08C60.525 7.08 61.215 7.32 61.755 7.80C62.295 8.28 62.625 8.91 62.745 9.69C63.015 8.91 63.45 8.28 64.05 7.80C64.65 7.32 65.37 7.08 66.21 7.08C67.23 7.08 68.04 7.41 68.64 8.07C69.24 8.73 69.54 9.69 69.54 10.95V16.11H67.29V11.22C67.29 10.44 67.125 9.855 66.795 9.465C66.465 9.075 66.015 8.88 65.445 8.88C64.815 8.88 64.32 9.105 63.96 9.555C63.60 10.005 63.42 10.62 63.42 11.40V16.11H61.17V11.22C61.17 10.44 61.005 9.855 60.675 9.465C60.345 9.075 59.895 8.88 59.325 8.88C58.695 8.88 58.20 9.105 57.84 9.555C57.48 10.005 57.30 10.62 57.30 11.40V16.11H55.17Z" fill="#070707"/>
-      <path d="M77.49 16.29C76.59 16.29 75.795 16.095 75.105 15.705C74.415 15.315 73.875 14.775 73.485 14.085C73.095 13.395 72.90 12.60 72.90 11.70C72.90 10.80 73.095 10.005 73.485 9.315C73.875 8.625 74.415 8.085 75.105 7.695C75.795 7.305 76.59 7.11 77.49 7.11C78.33 7.11 79.065 7.29 79.695 7.65C80.325 8.01 80.82 8.52 81.18 9.18C81.54 9.84 81.72 10.62 81.72 11.52V12.21H75.15V12.48C75.15 13.26 75.375 13.875 75.825 14.325C76.275 14.775 76.89 15.00 77.67 15.00C78.27 15.00 78.765 14.865 79.155 14.595C79.545 14.325 79.80 13.95 79.92 13.47H81.63C81.48 14.37 81.045 15.09 80.325 15.63C79.605 16.17 78.66 16.44 77.49 16.44V16.29ZM75.15 10.98H79.47V10.77C79.47 10.05 79.26 9.48 78.84 9.06C78.42 8.64 77.85 8.43 77.13 8.43C76.41 8.43 75.84 8.655 75.42 9.105C75.00 9.555 74.79 10.17 74.79 10.95L75.15 10.98Z" fill="#070707"/>
-      <path d="M88.89 16.29C88.02 16.29 87.24 16.095 86.55 15.705C85.86 15.315 85.32 14.775 84.93 14.085C84.54 13.395 84.345 12.60 84.345 11.70C84.345 10.80 84.54 10.005 84.93 9.315C85.32 8.625 85.86 8.085 86.55 7.695C87.24 7.305 88.02 7.11 88.89 7.11C89.79 7.11 90.585 7.335 91.275 7.785C91.965 8.235 92.46 8.865 92.76 9.675H90.90C90.72 9.255 90.45 8.925 90.09 8.685C89.73 8.445 89.31 8.325 88.83 8.325C88.14 8.325 87.585 8.565 87.165 9.045C86.745 9.525 86.535 10.17 86.535 10.98V12.42C86.535 13.23 86.745 13.875 87.165 14.355C87.585 14.835 88.14 15.075 88.83 15.075C89.31 15.075 89.73 14.955 90.09 14.715C90.45 14.475 90.72 14.145 90.90 13.725H92.76C92.46 14.535 91.965 15.165 91.275 15.615C90.585 16.065 89.79 16.29 88.89 16.29Z" fill="#070707"/>
-      <path d="M94.59 16.11V7.29H96.84V16.11H94.59ZM94.50 5.49V3.51H96.93V5.49H94.50Z" fill="#070707"/>
-    </svg>
+    <a class="logo" href="#">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="#fff" stroke-width="2"/></svg>
+      </div>
+      <span class="brand">beycome</span>
+    </a>
+    <div class="topbar-divider"></div>
     <span class="topbar-label">Team Schedules</span>
   </div>
-  <a href="https://github.com/samodiofl-boop/schedules" target="_blank">GitHub ↗</a>
-</header>
-
-<!-- Dept tabs -->
-<nav class="dept-tabs">
-  <div class="dept-tab active" onclick="showDept('mls')">MLS Team</div>
-  <div class="dept-tab" onclick="showDept('cs')">Customer Service</div>
-</nav>
-
-<!-- ═══════════════════════════════════════════════════════
-     MLS TEAM
-═══════════════════════════════════════════════════════ -->
-<div class="dept-panel active" id="panel-mls">
-  <div class="week-nav">
-    <button class="week-btn active" onclick="showWeek('mls',1,this)">Week 1</button>
-    <button class="week-btn" onclick="showWeek('mls',2,this)">Week 2</button>
-    <button class="week-btn" onclick="showWeek('mls',3,this)">Week 3</button>
-    <button class="week-btn" onclick="showWeek('mls',4,this)">Week 4</button>
-    <button class="week-btn" onclick="showWeek('mls',5,this)">Week 5</button>
-  </div>
-
-  <!-- MLS Week 1 -->
-  <div class="week-panel active" id="mls-week-1">
-    <div class="sched-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Agent</th>
-            <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="agent-name">Adriana</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Christina</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Daylenis</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-orange"></span><span class="cell-pill pill-ot">OT</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Hailey</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-orange"></span><span class="cell-pill pill-ot">OT</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Harley</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Jennifer</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Jonathan</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Josh</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Kenrick</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Samir</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="rules-section">
-      <div class="rules-title">Week 1 Notes</div>
-      <ul class="rules-list">
-        <li>Saturday OT: Daylenis &amp; Hailey</li>
-        <li>OT shift: 9 AM – 1 PM</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- MLS Week 2 -->
-  <div class="week-panel" id="mls-week-2">
-    <div class="sched-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Agent</th>
-            <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="agent-name">Adriana</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Christina</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-orange"></span><span class="cell-pill pill-ot">OT</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Daylenis</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Hailey</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Harley</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-orange"></span><span class="cell-pill pill-ot">OT</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Jennifer</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Jonathan</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Josh</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Kenrick</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Samir</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="rules-section">
-      <div class="rules-title">Week 2 Notes</div>
-      <ul class="rules-list">
-        <li>Saturday OT: Christina &amp; Harley</li>
-        <li>OT shift: 9 AM – 1 PM</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- MLS Week 3 -->
-  <div class="week-panel" id="mls-week-3">
-    <div class="sched-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Agent</th>
-            <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="agent-name">Adriana</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Christina</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Daylenis</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Hailey</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Harley</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Jennifer</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-orange"></span><span class="cell-pill pill-ot">OT</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Jonathan</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-orange"></span><span class="cell-pill pill-ot">OT</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Josh</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Kenrick</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Samir</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="rules-section">
-      <div class="rules-title">Week 3 Notes</div>
-      <ul class="rules-list">
-        <li>Saturday OT: Jennifer &amp; Jonathan</li>
-        <li>OT shift: 9 AM – 1 PM</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- MLS Week 4 -->
-  <div class="week-panel" id="mls-week-4">
-    <div class="sched-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Agent</th>
-            <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="agent-name">Adriana</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Christina</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Daylenis</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Hailey</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Harley</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Jennifer</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Jonathan</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Josh</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-orange"></span><span class="cell-pill pill-ot">OT</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Kenrick</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-orange"></span><span class="cell-pill pill-ot">OT</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Samir</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="rules-section">
-      <div class="rules-title">Week 4 Notes</div>
-      <ul class="rules-list">
-        <li>Saturday OT: Josh &amp; Kenrick</li>
-        <li>OT shift: 9 AM – 1 PM</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- MLS Week 5 -->
-  <div class="week-panel" id="mls-week-5">
-    <div class="sched-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Agent</th>
-            <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="agent-name">Adriana</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Christina</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Daylenis</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Hailey</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Harley</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Jennifer</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Jonathan</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Josh</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Kenrick</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Samir</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-orange"></span><span class="cell-pill pill-ot">OT</span></td><td><span class="off-dash">—</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="rules-section">
-      <div class="rules-title">Week 5 Notes</div>
-      <ul class="rules-list">
-        <li>Saturday OT: Samir (solo)</li>
-        <li>OT shift: 9 AM – 1 PM</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="rules-section" style="margin-top:28px; padding-top:20px; border-top:1px solid var(--border);">
-    <div class="rules-title">MLS Team — Standing Rules</div>
-    <ul class="rules-list">
-      <li>Regular hours: Mon–Fri, 9 AM – 6 PM</li>
-      <li>Saturday OT rotates 2 agents/week · 9 AM – 1 PM</li>
-      <li>OT pay: $20/day flat rate</li>
-      <li>Listing updates paused on Sundays</li>
-    </ul>
+  <div class="topbar-right">
+    <span class="badge badge-green">Active</span>
+    <span class="badge badge-blue">5-Week Rotation</span>
+    <span class="badge badge-orange">Effective Mar 23, 2026</span>
+    <a href="https://github.com/samodiofl-boop/schedules" target="_blank" class="gh-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+      GitHub
+    </a>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════
-     CUSTOMER SERVICE
-═══════════════════════════════════════════════════════ -->
-<div class="dept-panel" id="panel-cs">
-  <div class="week-nav">
-    <button class="week-btn active" onclick="showWeek('cs',1,this)">Week 1</button>
-    <button class="week-btn" onclick="showWeek('cs',2,this)">Week 2</button>
-    <button class="week-btn" onclick="showWeek('cs',3,this)">Week 3</button>
-    <button class="week-btn" onclick="showWeek('cs',4,this)">Week 4</button>
-    <button class="week-btn" onclick="showWeek('cs',5,this)">Week 5</button>
-  </div>
-
-  <!-- CS Week 1 -->
-  <div class="week-panel active" id="cs-week-1">
-    <div class="sched-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Agent</th>
-            <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th>
-            <th>Sat <span style="font-weight:400;text-transform:none;letter-spacing:0">8:30–4 PM</span></th>
-            <th>Sun <span style="font-weight:400;text-transform:none;letter-spacing:0">8:30–4 PM</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="agent-name">Giebelle</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Kenneth</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-blue"></span><span class="cell-pill pill-calls">Calls</span><span class="cell-pill pill-tickets">Tickets</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Mark</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-blue"></span><span class="cell-pill pill-calls">Calls</span><span class="cell-pill pill-tickets">Tickets</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Warren</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="dot dot-purple"></span><span class="cell-pill pill-tickets">Tickets</span></td></tr>
-          <tr><td class="agent-name">Rudy</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="rules-section">
-      <div class="rules-title">Week 1 Notes</div>
-      <ul class="rules-list">
-        <li>Sat OT (Calls + Tickets): Kenneth, Mark</li>
-        <li>Sun OT (Tickets Only): Warren</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- CS Week 2 -->
-  <div class="week-panel" id="cs-week-2">
-    <div class="sched-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Agent</th>
-            <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th>
-            <th>Sat <span style="font-weight:400;text-transform:none;letter-spacing:0">8:30–4 PM</span></th>
-            <th>Sun <span style="font-weight:400;text-transform:none;letter-spacing:0">8:30–4 PM</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="agent-name">Giebelle</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-blue"></span><span class="cell-pill pill-calls">Calls</span><span class="cell-pill pill-tickets">Tickets</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Kenneth</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Mark</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="dot dot-purple"></span><span class="cell-pill pill-tickets">Tickets</span></td></tr>
-          <tr><td class="agent-name">Warren</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Rudy</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-blue"></span><span class="cell-pill pill-calls">Calls</span><span class="cell-pill pill-tickets">Tickets</span></td><td><span class="off-dash">—</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="rules-section">
-      <div class="rules-title">Week 2 Notes</div>
-      <ul class="rules-list">
-        <li>Sat OT (Calls + Tickets): Giebelle, Rudy</li>
-        <li>Sun OT (Tickets Only): Mark</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- CS Week 3 -->
-  <div class="week-panel" id="cs-week-3">
-    <div class="sched-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Agent</th>
-            <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th>
-            <th>Sat <span style="font-weight:400;text-transform:none;letter-spacing:0">8:30–4 PM</span></th>
-            <th>Sun <span style="font-weight:400;text-transform:none;letter-spacing:0">8:30–4 PM</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="agent-name">Giebelle</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="dot dot-purple"></span><span class="cell-pill pill-tickets">Tickets</span></td></tr>
-          <tr><td class="agent-name">Kenneth</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-blue"></span><span class="cell-pill pill-calls">Calls</span><span class="cell-pill pill-tickets">Tickets</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Mark</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Warren</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-blue"></span><span class="cell-pill pill-calls">Calls</span><span class="cell-pill pill-tickets">Tickets</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Rudy</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="rules-section">
-      <div class="rules-title">Week 3 Notes</div>
-      <ul class="rules-list">
-        <li>Sat OT (Calls + Tickets): Kenneth, Warren</li>
-        <li>Sun OT (Tickets Only): Giebelle</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- CS Week 4 -->
-  <div class="week-panel" id="cs-week-4">
-    <div class="sched-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Agent</th>
-            <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th>
-            <th>Sat <span style="font-weight:400;text-transform:none;letter-spacing:0">8:30–4 PM</span></th>
-            <th>Sun <span style="font-weight:400;text-transform:none;letter-spacing:0">8:30–4 PM</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="agent-name">Giebelle</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Kenneth</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="dot dot-purple"></span><span class="cell-pill pill-tickets">Tickets</span></td></tr>
-          <tr><td class="agent-name">Mark</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-blue"></span><span class="cell-pill pill-calls">Calls</span><span class="cell-pill pill-tickets">Tickets</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Warren</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Rudy</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-blue"></span><span class="cell-pill pill-calls">Calls</span><span class="cell-pill pill-tickets">Tickets</span></td><td><span class="off-dash">—</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="rules-section">
-      <div class="rules-title">Week 4 Notes</div>
-      <ul class="rules-list">
-        <li>Sat OT (Calls + Tickets): Mark, Rudy</li>
-        <li>Sun OT (Tickets Only): Kenneth</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- CS Week 5 -->
-  <div class="week-panel" id="cs-week-5">
-    <div class="sched-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Agent</th>
-            <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th>
-            <th>Sat <span style="font-weight:400;text-transform:none;letter-spacing:0">8:30–4 PM</span></th>
-            <th>Sun <span style="font-weight:400;text-transform:none;letter-spacing:0">8:30–4 PM</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="agent-name">Giebelle</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-blue"></span><span class="cell-pill pill-calls">Calls</span><span class="cell-pill pill-tickets">Tickets</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Kenneth</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Mark</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Warren</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-blue"></span><span class="cell-pill pill-calls">Calls</span><span class="cell-pill pill-tickets">Tickets</span></td><td><span class="off-dash">—</span></td></tr>
-          <tr><td class="agent-name">Rudy</td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="off-dash">—</span></td><td><span class="dot dot-purple"></span><span class="cell-pill pill-tickets">Tickets</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="rules-section">
-      <div class="rules-title">Week 5 Notes</div>
-      <ul class="rules-list">
-        <li>Sat OT (Calls + Tickets): Giebelle, Warren</li>
-        <li>Sun OT (Tickets Only): Rudy</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="rules-section" style="margin-top:28px; padding-top:20px; border-top:1px solid var(--border);">
-    <div class="rules-title">Customer Service — Standing Rules</div>
-    <ul class="rules-list">
-      <li>Regular hours: Mon–Fri, 9 AM – 6 PM</li>
-      <li>Sat OT (Calls + Tickets): 2 agents/week · 8:30 AM – 4:00 PM</li>
-      <li>Sun OT (Tickets Only): 1 agent/week · 8:30 AM – 4:00 PM</li>
-      <li>OT pay: $20/day flat rate · $60/cycle each</li>
-    </ul>
-  </div>
+<!-- ══ Department Nav ══ -->
+<div class="dept-nav">
+  <button class="dept-tab active" onclick="showDept('mls', this)">
+    <span class="dot dot-mls"></span> MLS Team
+  </button>
+  <button class="dept-tab" onclick="showDept('cs', this)">
+    <span class="dot dot-cs"></span> Customer Service
+  </button>
 </div>
+
+<!-- ══ Hero ══ -->
+<div class="hero">
+  <div class="hero-eyebrow">Team Operations · Internal</div>
+  <h1>5-Week <em>Rotating</em> Schedules</h1>
+  <p>Effective March 23, 2026. All schedules rotate on a 5-week cycle. OT is paid at a flat $20/day rate.</p>
+</div>
+
+
+<!-- ════════════════════════════════
+     MLS TEAM SECTION
+════════════════════════════════ -->
+<div class="dept-section active" id="dept-mls">
+
+  <!-- Dept Header -->
+  <div class="dept-header">
+    <div class="dept-title-wrap">
+      <div class="dept-icon dept-icon-mls">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff9b77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div>
+        <div class="dept-title">MLS Team</div>
+        <div class="dept-subtitle">4 agents · Custom shift agreements · Effective Mar 23, 2026</div>
+      </div>
+    </div>
+    <div class="dept-meta">
+      <span class="badge badge-orange">Alvaro — Tue–Sat (no OT)</span>
+      <span class="badge badge-blue">Michael — Sun OT every week</span>
+      <span class="badge badge-green">Lindy & Karinna — Alternating Sat OT</span>
+    </div>
+  </div>
+
+  <!-- Agent Cards -->
+  <div class="section">
+    <div class="section-label">Team overview</div>
+    <div class="agents-grid">
+
+      <div class="agent-card highlight-orange">
+        <div class="agent-name">Alvaro <span class="agent-tag tag-orange">Tue–Sat</span></div>
+        <div class="agent-hours">8:30 AM – 6:00 PM</div>
+        <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Tue – Sat</span></div>
+          <div class="agent-meta-row"><span class="k">Days off</span><span class="v">Sun & Mon</span></div>
+          <div class="agent-meta-row"><span class="k">Saturday</span><span class="v">Regular (no OT)</span></div>
+          <div class="agent-divider"></div>
+          <div class="agent-ot ot-orange">★ Sat included in regular pay</div>
+        </div>
+      </div>
+
+      <div class="agent-card highlight-blue">
+        <div class="agent-name">Michael <span class="agent-tag tag-blue">Sun OT</span></div>
+        <div class="agent-hours">8:30 AM – 6:00 PM</div>
+        <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
+          <div class="agent-meta-row"><span class="k">Sunday OT</span><span class="v">Every week (agreed)</span></div>
+          <div class="agent-meta-row"><span class="k">Saturday</span><span class="v">Always off</span></div>
+          <div class="agent-divider"></div>
+          <div class="agent-ot ot-blue">$20/day · 5 OT shifts = $100/cycle</div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-name">Lindy</div>
+        <div class="agent-hours">10:00 AM – 7:30 PM</div>
+        <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1, 3 &amp; 5</span></div>
+          <div class="agent-meta-row"><span class="k">Sundays</span><span class="v">Always off</span></div>
+          <div class="agent-divider"></div>
+          <div class="agent-ot ot-amber">$20/day · 3 OT shifts = $60/cycle</div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-name">Karinna</div>
+        <div class="agent-hours">9:00 AM – 6:30 PM</div>
+        <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">2 &amp; 4</span></div>
+          <div class="agent-meta-row"><span class="k">Sundays</span><span class="v">Always off</span></div>
+          <div class="agent-divider"></div>
+          <div class="agent-ot ot-amber">$20/day · 2 OT shifts = $40/cycle</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Week Nav -->
+    <div class="section-label">Weekly schedule</div>
+    <div class="week-nav">
+      <button class="week-btn active" onclick="showWeek('mls',1)">Week 1 · Mar 23–29</button>
+      <button class="week-btn" onclick="showWeek('mls',2)">Week 2 · Mar 30–Apr 5</button>
+      <button class="week-btn" onclick="showWeek('mls',3)">Week 3 · Apr 6–12</button>
+      <button class="week-btn" onclick="showWeek('mls',4)">Week 4 · Apr 13–19</button>
+      <button class="week-btn" onclick="showWeek('mls',5)">Week 5 · Apr 20–26</button>
+    </div>
+
+    <!-- MLS WEEK 1 -->
+    <div class="week-panel active" id="mls-week-1">
+      <div class="week-header">
+        <span class="week-title-main">March 23 – 29, 2026</span>
+        <span class="week-title-sub">Week 1 of 5</span>
+        <span class="week-badge badge badge-orange">Sat OT: Lindy</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 23</th><th>Tue 24</th><th>Wed 25</th><th>Thu 26</th><th>Fri 27</th>
+          <th class="col-sat">Sat 28</th><th class="col-sun">Sun 29</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-off-a">Off</span></td>
+            <td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td>
+            <td class="col-sat"><span class="pill pill-asat">Regular Shift</span></td>
+            <td class="col-sun"><span class="pill pill-off-a">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-work">Working</span></td>
+            <td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-ot-sat">OT – Sat</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Michael ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-mwork">Working</span></td>
+            <td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-ot-sun">OT – Sun</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-work">Working</span></td>
+            <td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MLS WEEK 2 -->
+    <div class="week-panel" id="mls-week-2">
+      <div class="week-header">
+        <span class="week-title-main">March 30 – April 5, 2026</span>
+        <span class="week-title-sub">Week 2 of 5</span>
+        <span class="week-badge badge badge-orange">Sat OT: Karinna</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 30</th><th>Tue 31</th><th>Wed Apr 1</th><th>Thu 2</th><th>Fri 3</th>
+          <th class="col-sat">Sat 4</th><th class="col-sun">Sun 5</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-off-a">Off</span></td>
+            <td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td>
+            <td class="col-sat"><span class="pill pill-asat">Regular Shift</span></td>
+            <td class="col-sun"><span class="pill pill-off-a">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-work">Working</span></td>
+            <td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Michael ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-mwork">Working</span></td>
+            <td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-ot-sun">OT – Sun</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-work">Working</span></td>
+            <td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-ot-sat">OT – Sat</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MLS WEEK 3 -->
+    <div class="week-panel" id="mls-week-3">
+      <div class="week-header">
+        <span class="week-title-main">April 6 – 12, 2026</span>
+        <span class="week-title-sub">Week 3 of 5</span>
+        <span class="week-badge badge badge-orange">Sat OT: Lindy</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 6</th><th>Tue 7</th><th>Wed 8</th><th>Thu 9</th><th>Fri 10</th>
+          <th class="col-sat">Sat 11</th><th class="col-sun">Sun 12</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-off-a">Off</span></td>
+            <td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td>
+            <td class="col-sat"><span class="pill pill-asat">Regular Shift</span></td>
+            <td class="col-sun"><span class="pill pill-off-a">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-work">Working</span></td>
+            <td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-ot-sat">OT – Sat</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Michael ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-mwork">Working</span></td>
+            <td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-ot-sun">OT – Sun</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-work">Working</span></td>
+            <td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MLS WEEK 4 -->
+    <div class="week-panel" id="mls-week-4">
+      <div class="week-header">
+        <span class="week-title-main">April 13 – 19, 2026</span>
+        <span class="week-title-sub">Week 4 of 5</span>
+        <span class="week-badge badge badge-orange">Sat OT: Karinna</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 13</th><th>Tue 14</th><th>Wed 15</th><th>Thu 16</th><th>Fri 17</th>
+          <th class="col-sat">Sat 18</th><th class="col-sun">Sun 19</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-off-a">Off</span></td>
+            <td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td>
+            <td class="col-sat"><span class="pill pill-asat">Regular Shift</span></td>
+            <td class="col-sun"><span class="pill pill-off-a">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-work">Working</span></td>
+            <td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Michael ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-mwork">Working</span></td>
+            <td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-ot-sun">OT – Sun</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-work">Working</span></td>
+            <td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-ot-sat">OT – Sat</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MLS WEEK 5 -->
+    <div class="week-panel" id="mls-week-5">
+      <div class="week-header">
+        <span class="week-title-main">April 20 – 26, 2026</span>
+        <span class="week-title-sub">Week 5 of 5</span>
+        <span class="week-badge badge badge-orange">Sat OT: Lindy</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 20</th><th>Tue 21</th><th>Wed 22</th><th>Thu 23</th><th>Fri 24</th>
+          <th class="col-sat">Sat 25</th><th class="col-sun">Sun 26</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-off-a">Off</span></td>
+            <td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td><td><span class="pill pill-awork">Working</span></td>
+            <td class="col-sat"><span class="pill pill-asat">Regular Shift</span></td>
+            <td class="col-sun"><span class="pill pill-off-a">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-work">Working</span></td>
+            <td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-ot-sat">OT – Sat</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Michael ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-mwork">Working</span></td>
+            <td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td><td><span class="pill pill-mwork">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-ot-sun">OT – Sun</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="pill pill-work">Working</span></td>
+            <td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td><td><span class="pill pill-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div><!-- /section -->
+
+  <!-- MLS Standing Rules -->
+  <div class="rules-bar">
+    <div class="section-label" style="padding:0;margin-bottom:14px;">Standing rules — MLS Team</div>
+    <div class="rules-box">
+      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>All PTO requires <strong>advance approval</strong> and a coverage plan before it is confirmed</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>OT rate is <strong>$20 flat per day</strong> — applies to Lindy & Karinna (Sat) and Michael (Sun)</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Alvaro's Saturday is his <strong>regular work day</strong> — no OT applies</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Michael has <strong>agreed to every Sunday</strong> — standing commitment for the full cycle</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Lindy covers <strong>odd weeks</strong> (1, 3, 5) · Karinna covers <strong>even weeks</strong> (2, 4) on Saturday</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Cycle <strong>repeats after Week 5</strong> — next cycle begins the week of April 27</span></div>
+    </div>
+  </div>
+
+</div><!-- /dept-mls -->
+
+
+<!-- ════════════════════════════════
+     CUSTOMER SERVICE SECTION
+════════════════════════════════ -->
+<div class="dept-section" id="dept-cs">
+
+  <!-- Dept Header -->
+  <div class="dept-header">
+    <div class="dept-title-wrap">
+      <div class="dept-icon dept-icon-cs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7d8ff7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="dept-title">Customer Service</div>
+        <div class="dept-subtitle">5 agents · 2 on Sat OT · 1 on Sun tickets · Effective Mar 23, 2026</div>
+      </div>
+    </div>
+    <div class="dept-meta">
+      <span class="badge badge-blue">2 agents on Sat (Calls + Tickets)</span>
+      <span class="badge badge-green">1 agent on Sun (Tickets Only)</span>
+      <span class="badge badge-orange">$20/day OT · $60/cycle each</span>
+    </div>
+  </div>
+
+  <!-- CS Agent Cards -->
+  <div class="section">
+    <div class="section-label">Team overview</div>
+    <div class="agents-grid agents-grid-5">
+
+      <div class="agent-card">
+        <div class="agent-name">Giebelle</div>
+        <div class="agent-hours">Mon – Fri every week</div>
+        <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">2 &amp; 5</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 3</span></div>
+          <div class="agent-meta-row"><span class="k">OT type (Sun)</span><span class="v">Tickets Only</span></div>
+          <div class="agent-divider"></div>
+          <div class="agent-ot ot-teal">$20/day · 3 OT shifts = $60/cycle</div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-name">Kenneth</div>
+        <div class="agent-hours">Mon – Fri every week</div>
+        <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1 &amp; 3</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 4</span></div>
+          <div class="agent-meta-row"><span class="k">OT type (Sun)</span><span class="v">Tickets Only</span></div>
+          <div class="agent-divider"></div>
+          <div class="agent-ot ot-teal">$20/day · 3 OT shifts = $60/cycle</div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-name">Mark</div>
+        <div class="agent-hours">Mon – Fri every week</div>
+        <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1 &amp; 4</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 2</span></div>
+          <div class="agent-meta-row"><span class="k">OT type (Sun)</span><span class="v">Tickets Only</span></div>
+          <div class="agent-divider"></div>
+          <div class="agent-ot ot-teal">$20/day · 3 OT shifts = $60/cycle</div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-name">Warren</div>
+        <div class="agent-hours">Mon – Fri every week</div>
+        <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">3 &amp; 5</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 1</span></div>
+          <div class="agent-meta-row"><span class="k">OT type (Sun)</span><span class="v">Tickets Only</span></div>
+          <div class="agent-divider"></div>
+          <div class="agent-ot ot-teal">$20/day · 3 OT shifts = $60/cycle</div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-name">Rudy</div>
+        <div class="agent-hours">Mon – Fri every week</div>
+        <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">2 &amp; 4</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 5</span></div>
+          <div class="agent-meta-row"><span class="k">OT type (Sun)</span><span class="v">Tickets Only</span></div>
+          <div class="agent-divider"></div>
+          <div class="agent-ot ot-teal">$20/day · 3 OT shifts = $60/cycle</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-item"><span class="pill pill-cs-work" style="font-size:10px;">Working</span> Mon–Fri production day</div>
+      <div class="legend-item"><span class="pill pill-cs-calls" style="font-size:10px;">Calls + Tickets</span> Saturday OT — answer calls &amp; handle tickets</div>
+      <div class="legend-item"><span class="pill pill-cs-tickets" style="font-size:10px;">Tickets Only</span> Sunday OT — support tickets, no calls</div>
+      <div class="legend-item"><span class="pill pill-off" style="font-size:10px;">Off</span> Rest day</div>
+    </div>
+
+    <!-- CS Week Nav -->
+    <div class="section-label">Weekly schedule</div>
+    <div class="week-nav">
+      <button class="week-btn active" onclick="showWeek('cs',1)">Week 1 · Mar 23–29</button>
+      <button class="week-btn" onclick="showWeek('cs',2)">Week 2 · Mar 30–Apr 5</button>
+      <button class="week-btn" onclick="showWeek('cs',3)">Week 3 · Apr 6–12</button>
+      <button class="week-btn" onclick="showWeek('cs',4)">Week 4 · Apr 13–19</button>
+      <button class="week-btn" onclick="showWeek('cs',5)">Week 5 · Apr 20–26</button>
+    </div>
+
+    <!-- CS WEEK 1 -->
+    <div class="week-panel active" id="cs-week-1">
+      <div class="week-header">
+        <span class="week-title-main">March 23 – 29, 2026</span>
+        <span class="week-title-sub">Week 1 of 5</span>
+        <span class="week-badge badge badge-blue">Sat: Kenneth + Mark · Sun: Warren</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 23</th><th>Tue 24</th><th>Wed 25</th><th>Thu 26</th><th>Fri 27</th>
+          <th class="col-sat">Sat 28</th><th class="col-sun">Sun 29</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Kenneth</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-cs-tickets">Tickets Only</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CS WEEK 2 -->
+    <div class="week-panel" id="cs-week-2">
+      <div class="week-header">
+        <span class="week-title-main">March 30 – April 5, 2026</span>
+        <span class="week-title-sub">Week 2 of 5</span>
+        <span class="week-badge badge badge-blue">Sat: Giebelle + Rudy · Sun: Mark</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 30</th><th>Tue 31</th><th>Wed Apr 1</th><th>Thu 2</th><th>Fri 3</th>
+          <th class="col-sat">Sat 4</th><th class="col-sun">Sun 5</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Kenneth</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-cs-tickets">Tickets Only</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CS WEEK 3 -->
+    <div class="week-panel" id="cs-week-3">
+      <div class="week-header">
+        <span class="week-title-main">April 6 – 12, 2026</span>
+        <span class="week-title-sub">Week 3 of 5</span>
+        <span class="week-badge badge badge-blue">Sat: Kenneth + Warren · Sun: Giebelle</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 6</th><th>Tue 7</th><th>Wed 8</th><th>Thu 9</th><th>Fri 10</th>
+          <th class="col-sat">Sat 11</th><th class="col-sun">Sun 12</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-cs-tickets">Tickets Only</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Kenneth</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CS WEEK 4 -->
+    <div class="week-panel" id="cs-week-4">
+      <div class="week-header">
+        <span class="week-title-main">April 13 – 19, 2026</span>
+        <span class="week-title-sub">Week 4 of 5</span>
+        <span class="week-badge badge badge-blue">Sat: Mark + Rudy · Sun: Kenneth</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 13</th><th>Tue 14</th><th>Wed 15</th><th>Thu 16</th><th>Fri 17</th>
+          <th class="col-sat">Sat 18</th><th class="col-sun">Sun 19</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Kenneth</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-cs-tickets">Tickets Only</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CS WEEK 5 -->
+    <div class="week-panel" id="cs-week-5">
+      <div class="week-header">
+        <span class="week-title-main">April 20 – 26, 2026</span>
+        <span class="week-title-sub">Week 5 of 5</span>
+        <span class="week-badge badge badge-blue">Sat: Giebelle + Warren · Sun: Rudy</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 20</th><th>Tue 21</th><th>Wed 22</th><th>Thu 23</th><th>Fri 24</th>
+          <th class="col-sat">Sat 25</th><th class="col-sun">Sun 26</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Kenneth</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sun"><span class="pill pill-off">Off</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
+            <td class="col-mon"><span class="pill pill-cs-work">Working</span></td>
+            <td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td><td><span class="pill pill-cs-work">Working</span></td>
+            <td class="col-sat"><span class="pill pill-off">Off</span></td>
+            <td class="col-sun"><span class="pill pill-cs-tickets">Tickets Only</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div><!-- /section -->
+
+  <!-- CS Standing Rules -->
+  <div class="rules-bar">
+    <div class="section-label" style="padding:0;margin-bottom:14px;">Standing rules — Customer Service</div>
+    <div class="rules-box">
+      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>All agents work <strong>Monday–Friday</strong> every week — no exceptions without prior approval</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>Saturday always requires <strong>exactly 2 agents on duty</strong> (Calls + Tickets)</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>Sunday agent handles <strong>support tickets only</strong> — no inbound calls on Sundays</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>OT rate is <strong>$20 flat per day</strong> — applies to all Saturday and Sunday shifts</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>Each agent works <strong>3 OT shifts per cycle</strong> (2 Sat + 1 Sun) — rotation is fair and equal</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>All PTO requires <strong>advance approval</strong> and a coverage plan · Cycle repeats after Week 5</span></div>
+    </div>
+  </div>
+
+</div><!-- /dept-cs -->
+
 
 <script>
-  function showDept(dept) {
-    document.querySelectorAll('.dept-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.dept-panel').forEach(p => p.classList.remove('active'));
-    document.querySelector(`[onclick="showDept('${dept}')"]`).classList.add('active');
-    document.getElementById('panel-' + dept).classList.add('active');
-  }
+function showDept(dept, tabEl) {
+  document.querySelectorAll('.dept-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.dept-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('dept-' + dept).classList.add('active');
+  tabEl.classList.add('active');
+}
 
-  function showWeek(dept, week, btn) {
-    const panel = document.getElementById('panel-' + dept);
-    panel.querySelectorAll('.week-btn').forEach(b => b.classList.remove('active'));
-    panel.querySelectorAll('.week-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(dept + '-week-' + week).classList.add('active');
-  }
+function showWeek(dept, n) {
+  const prefix = dept + '-week-';
+  document.querySelectorAll('[id^="' + prefix + '"]').forEach(p => p.classList.remove('active'));
+  // Update buttons within the active dept section
+  const deptEl = document.getElementById('dept-' + dept);
+  deptEl.querySelectorAll('.week-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(prefix + n).classList.add('active');
+  deptEl.querySelectorAll('.week-btn')[n - 1].classList.add('active');
+}
 </script>
 </body>
 </html>
