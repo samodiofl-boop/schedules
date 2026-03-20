@@ -259,7 +259,7 @@
   .schedule-table th.col-agent { text-align: left; width: 200px; }
   .schedule-table th.col-sat { background: var(--amber-dim); color: var(--amber); border-bottom-color: var(--amber-border); }
   .schedule-table th.col-sun { background: var(--purple-dim); color: var(--purple); border-bottom-color: var(--purple-border); }
-  .schedule-table th.col-mon { background: rgba(239,68,68,0.06); color: #ef4444; border-bottom-color: rgba(239,68,68,0.3); }
+  .schedule-table th.col-mon { }
 
   .schedule-table td {
     padding: 14px; text-align: center;
@@ -270,12 +270,12 @@
   .schedule-table td.col-agent { text-align: left; }
   .schedule-table td.col-sat { background: rgba(245,158,11,0.03); }
   .schedule-table td.col-sun { background: rgba(167,139,250,0.03); }
-  .schedule-table td.col-mon { background: rgba(239,68,68,0.03); }
+  .schedule-table td.col-mon { }
 
   .schedule-table tr:hover td { background: var(--surface2); }
   .schedule-table tr:hover td.col-sat { background: rgba(245,158,11,0.05); }
   .schedule-table tr:hover td.col-sun { background: rgba(167,139,250,0.05); }
-  .schedule-table tr:hover td.col-mon { background: rgba(239,68,68,0.05); }
+  .schedule-table tr:hover td.col-mon { }
 
   .agent-cell { display: flex; flex-direction: column; gap: 2px; }
   .agent-cell-name  { font-size: 14px; font-weight: 700; color: var(--navy); }
@@ -408,7 +408,7 @@
 <div class="dept-section active" id="dept-mls">
 
   <!-- Agent Cards -->
-  <div class="section">
+  <div class="section" style="margin-top:32px;">
     <div class="section-label">Team overview</div>
     <div class="agents-grid">
 
@@ -745,14 +745,15 @@
   </div>
 
   <!-- CS Agent Cards -->
-  <div class="section">
+  <div class="section" style="margin-top:32px;">
     <div class="section-label">Team overview</div>
     <div class="agents-grid agents-grid-5">
 
       <div class="agent-card">
         <div class="agent-name">Giebelle</div>
-        <div class="agent-hours">9:00 AM – 7:00 PM · Mon – Fri</div>
+        <div class="agent-hours">9:00 AM – 7:00 PM</div>
         <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
           <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">2 &amp; 5</span></div>
           <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 3</span></div>
           <div class="agent-meta-row"><span class="k">OT type (Sun)</span><span class="v">Tickets Only</span></div>
@@ -763,8 +764,9 @@
 
       <div class="agent-card">
         <div class="agent-name">Kenneth</div>
-        <div class="agent-hours">9:00 AM – 7:00 PM · Mon – Fri</div>
+        <div class="agent-hours">9:00 AM – 7:00 PM</div>
         <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
           <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1 &amp; 3</span></div>
           <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 4</span></div>
           <div class="agent-meta-row"><span class="k">OT type (Sun)</span><span class="v">Tickets Only</span></div>
@@ -775,8 +777,9 @@
 
       <div class="agent-card">
         <div class="agent-name">Mark</div>
-        <div class="agent-hours">8:30 AM – 6:30 PM · Mon – Fri</div>
+        <div class="agent-hours">8:30 AM – 6:30 PM</div>
         <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
           <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1 &amp; 4</span></div>
           <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 2</span></div>
           <div class="agent-meta-row"><span class="k">OT type (Sun)</span><span class="v">Tickets Only</span></div>
@@ -787,8 +790,9 @@
 
       <div class="agent-card">
         <div class="agent-name">Warren</div>
-        <div class="agent-hours">8:30 AM – 6:30 PM · Mon – Fri</div>
+        <div class="agent-hours">8:30 AM – 6:30 PM</div>
         <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
           <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">3 &amp; 5</span></div>
           <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 1</span></div>
           <div class="agent-meta-row"><span class="k">OT type (Sun)</span><span class="v">Tickets Only</span></div>
@@ -799,8 +803,9 @@
 
       <div class="agent-card">
         <div class="agent-name">Rudy</div>
-        <div class="agent-hours">Mon – Fri every week</div>
+        <div class="agent-hours">—</div>
         <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
           <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">2 &amp; 4</span></div>
           <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 5</span></div>
           <div class="agent-meta-row"><span class="k">OT type (Sun)</span><span class="v">Tickets Only</span></div>
