@@ -281,6 +281,7 @@
   .agent-cell-name  { font-size: 14px; font-weight: 700; color: var(--navy); }
   .agent-cell-hours { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--muted); }
 
+  .ot-time { display: block; font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 4px; }
   /* ── Pills ── */
   .pill {
     display: inline-flex; align-items: center; justify-content: center;
@@ -490,14 +491,14 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
             <td class="col-mon"><span class="off-dash">—</span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-asat">Regular Shift</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-asat">Regular Shift</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-ot-sat">OT – Sat</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sat">OT – Sat</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -505,7 +506,7 @@
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="pill pill-ot-sun">OT – Sun</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sun">OT – Sun</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
@@ -536,7 +537,7 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
             <td class="col-mon"><span class="off-dash">—</span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-asat">Regular Shift</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-asat">Regular Shift</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -551,13 +552,13 @@
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="pill pill-ot-sun">OT – Sun</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sun">OT – Sun</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-ot-sat">OT – Sat</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sat">OT – Sat</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
         </tbody>
@@ -582,14 +583,14 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
             <td class="col-mon"><span class="off-dash">—</span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-asat">Regular Shift</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-asat">Regular Shift</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-ot-sat">OT – Sat</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sat">OT – Sat</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -597,7 +598,7 @@
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="pill pill-ot-sun">OT – Sun</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sun">OT – Sun</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
@@ -628,7 +629,7 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
             <td class="col-mon"><span class="off-dash">—</span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-asat">Regular Shift</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-asat">Regular Shift</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -643,13 +644,13 @@
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="pill pill-ot-sun">OT – Sun</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sun">OT – Sun</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-ot-sat">OT – Sat</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sat">OT – Sat</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
         </tbody>
@@ -674,14 +675,14 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
             <td class="col-mon"><span class="off-dash">—</span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-asat">Regular Shift</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-asat">Regular Shift</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-ot-sat">OT – Sat</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sat">OT – Sat</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -689,7 +690,7 @@
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="pill pill-ot-sun">OT – Sun</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sun">OT – Sun</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
@@ -783,7 +784,7 @@
 
       <div class="agent-card">
         <div class="agent-name">Rudy</div>
-        <div class="agent-hours">—</div>
+        <div class="agent-hours">9:00 AM – 7:00 PM</div>
         <div class="agent-meta">
           <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
           <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">2 &amp; 4</span></div>
@@ -831,14 +832,14 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Kenneth</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -846,7 +847,7 @@
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="pill pill-cs-tickets">Tickets Only</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-tickets">Tickets Only</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
@@ -877,7 +878,7 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -892,7 +893,7 @@
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="pill pill-cs-tickets">Tickets Only</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-tickets">Tickets Only</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
@@ -905,7 +906,7 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
         </tbody>
@@ -931,13 +932,13 @@
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="pill pill-cs-tickets">Tickets Only</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-tickets">Tickets Only</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Kenneth</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -951,7 +952,7 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -991,13 +992,13 @@
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="pill pill-cs-tickets">Tickets Only</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-tickets">Tickets Only</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -1011,7 +1012,7 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
         </tbody>
@@ -1036,7 +1037,7 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -1057,7 +1058,7 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="pill pill-cs-calls">Calls + Tickets</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -1065,7 +1066,7 @@
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="pill pill-cs-tickets">Tickets Only</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-tickets">Tickets Only</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
         </tbody>
       </table>
