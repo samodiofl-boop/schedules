@@ -310,10 +310,14 @@
     border: 1px solid var(--border);
     border-radius: 14px; padding: 20px 24px;
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 10px 40px;
+    grid-auto-rows: auto;
+    gap: 0 40px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.04);
   }
-  .rule-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .rule-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--muted); line-height: 1.6; padding: 9px 0; border-bottom: 1px solid var(--border); }
+  .rule-item:nth-child(odd):last-child,
+  .rule-item:nth-child(even):last-child { border-bottom: none; }
+  .rule-item:nth-last-child(-n+2) { border-bottom: none; }
   .rule-dot  { width: 5px; height: 5px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
   .rule-dot-orange { background: var(--orange); }
   .rule-dot-blue   { background: var(--blue); }
@@ -701,7 +705,7 @@
 
   <!-- MLS Standing Rules -->
   <div class="rules-bar">
-    <div class="section-label" style="padding:0;margin-bottom:14px;">Standing rules — MLS Team</div>
+    <div class="section-label" style="padding:0;margin-bottom:14px;">Rules</div>
     <div class="rules-box">
       <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>All PTO requires <strong>advance approval</strong> and a coverage plan before it is confirmed</span></div>
       <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>OT rate is <strong>time and a half</strong> — e.g. $4.06/hr → $6.09/hr · applies to Lindy & Karinna (Sat) and Michael (Sun)</span></div>
@@ -1060,7 +1064,7 @@
 
   <!-- CS Standing Rules -->
   <div class="rules-bar">
-    <div class="section-label" style="padding:0;margin-bottom:14px;">Standing rules — Customer Service</div>
+    <div class="section-label" style="padding:0;margin-bottom:14px;">Rules</div>
     <div class="rules-box">
       <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>All agents work <strong>Monday–Friday</strong> every week — no exceptions without prior approval</span></div>
       <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>Saturday always requires <strong>exactly 2 agents on duty</strong> (Calls + Tickets)</span></div>
