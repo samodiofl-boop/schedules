@@ -302,6 +302,8 @@
   .pill-cs-work   { background: var(--teal-dim);    color: #0f766e;   border: 1px solid var(--teal-border); }
   .pill-cs-calls  { background: var(--orange-dim);  color: #c2410c;   border: 1px solid var(--orange-border); }
   .pill-cs-tickets{ background: var(--blue-dim);    color: #4338ca;   border: 1px solid var(--blue-border); }
+  .pill-changes   { background: var(--amber-dim);   color: var(--amber);  border: 1px solid var(--amber-border); }
+  .pill-listings  { background: var(--teal-dim);    color: var(--teal);   border: 1px solid var(--teal-border); }
 
   /* ── Rules box ── */
   .rules-bar { max-width: 1200px; margin: 8px auto 48px; padding: 0 40px; }
@@ -388,8 +390,8 @@
   </div>
   <div class="topbar-right">
     <span class="badge badge-green">Active</span>
-    <span class="badge badge-blue">5-Week Rotation</span>
-    <span class="badge badge-orange">Effective Mar 23, 2026</span>
+    <span class="badge badge-blue">6-Week Rotation</span>
+    <span class="badge badge-orange">Effective May 4, 2026</span>
     <a href="https://github.com/samodiofl-boop/schedules" target="_blank" class="gh-link">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
       GitHub
@@ -415,46 +417,58 @@
   <!-- Agent Cards -->
   <div class="section" style="margin-top:32px;">
     <div class="section-label">Team overview</div>
-    <div class="agents-grid">
+    <div class="agents-grid agents-grid-5">
 
       <div class="agent-card">
         <div class="agent-name">Alvaro</div>
-        <div class="agent-hours">8:30 AM – 6:00 PM</div>
+        <div class="agent-hours">9:00 AM – 6:30 PM</div>
         <div class="agent-meta">
-          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Tue – Sat</span></div>
-          <div class="agent-meta-row"><span class="k">Days off</span><span class="v">Sun & Mon</span></div>
-          <div class="agent-meta-row"><span class="k">Saturday</span><span class="v">Regular (no OT)</span></div>
+          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1, 3 &amp; 4</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 5</span></div>
           <div class="agent-divider"></div>
-          <div class="agent-ot ot-orange">★ Sat included in regular pay</div>
+          <div class="agent-ot ot-amber">Time &amp; a half · 4 OT shifts/cycle</div>
         </div>
       </div>
 
       <div class="agent-card">
-        <div class="agent-name">Michael</div>
-        <div class="agent-hours">8:30 AM – 6:00 PM</div>
+        <div class="agent-name">Lindy</div>
+        <div class="agent-hours">9:00 AM – 6:30 PM</div>
         <div class="agent-meta">
           <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
-          <div class="agent-meta-row"><span class="k">Sunday OT</span><span class="v">Every week (agreed)</span></div>
-          <div class="agent-meta-row"><span class="k">Saturday</span><span class="v">Always off</span></div>
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">2, 5 &amp; 6</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT weeks</span><span class="v">1 &amp; 3</span></div>
           <div class="agent-divider"></div>
           <div class="agent-ot ot-amber">Time &amp; a half · 5 OT shifts/cycle</div>
         </div>
       </div>
 
       <div class="agent-card">
-        <div class="agent-name">Lindy</div>
-        <div class="agent-hours">10:00 AM – 7:30 PM</div>
+        <div class="agent-name">Karinna</div>
+        <div class="agent-hours">9:00 AM – 6:30 PM</div>
         <div class="agent-meta">
           <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
-          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1, 3 &amp; 5</span></div>
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">3 &amp; 6</span></div>
           <div class="agent-meta-row"><span class="k">Sundays</span><span class="v">Always off</span></div>
           <div class="agent-divider"></div>
-          <div class="agent-ot ot-amber">Time &amp; a half · 3 OT shifts/cycle</div>
+          <div class="agent-ot ot-amber">Time &amp; a half · 2 OT shifts/cycle</div>
         </div>
       </div>
 
       <div class="agent-card">
-        <div class="agent-name">Karinna</div>
+        <div class="agent-name">Bridget</div>
+        <div class="agent-hours">9:00 AM – 6:30 PM</div>
+        <div class="agent-meta">
+          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1 &amp; 5</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT weeks</span><span class="v">2, 4 &amp; 6</span></div>
+          <div class="agent-divider"></div>
+          <div class="agent-ot ot-amber">Time &amp; a half · 5 OT shifts/cycle</div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-name">Label</div>
         <div class="agent-hours">9:00 AM – 6:30 PM</div>
         <div class="agent-meta">
           <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
@@ -470,49 +484,56 @@
     <!-- Week Nav -->
     <div class="section-label">Weekly schedule</div>
     <div class="week-nav">
-      <button class="week-btn active" onclick="showWeek('mls',1)">Week 1 · Mar 23–29</button>
-      <button class="week-btn" onclick="showWeek('mls',2)">Week 2 · Mar 30–Apr 5</button>
-      <button class="week-btn" onclick="showWeek('mls',3)">Week 3 · Apr 6–12</button>
-      <button class="week-btn" onclick="showWeek('mls',4)">Week 4 · Apr 13–19</button>
-      <button class="week-btn" onclick="showWeek('mls',5)">Week 5 · Apr 20–26</button>
+      <button class="week-btn active" onclick="showWeek('mls',1)">Week 1 · May 4–10</button>
+      <button class="week-btn" onclick="showWeek('mls',2)">Week 2 · May 11–17</button>
+      <button class="week-btn" onclick="showWeek('mls',3)">Week 3 · May 18–24</button>
+      <button class="week-btn" onclick="showWeek('mls',4)">Week 4 · May 25–31</button>
+      <button class="week-btn" onclick="showWeek('mls',5)">Week 5 · Jun 1–7</button>
+      <button class="week-btn" onclick="showWeek('mls',6)">Week 6 · Jun 8–14</button>
     </div>
 
     <!-- MLS WEEK 1 -->
     <div class="week-panel active" id="mls-week-1">
       <div class="week-header">
-        <span class="week-title-main">March 23 – 29, 2026</span>
-        <span class="week-title-sub">Week 1 of 5</span>
+        <span class="week-title-main">May 4 – 10, 2026</span>
+        <span class="week-title-sub">Week 1 of 6</span>
       </div>
       <table class="schedule-table">
         <thead><tr>
           <th class="col-agent">Agent</th>
-          <th class="col-mon">Mon 23</th><th>Tue 24</th><th>Wed 25</th><th>Thu 26</th><th>Fri 27</th>
-          <th class="col-sat">Sat 28</th><th class="col-sun">Sun 29</th>
+          <th class="col-mon">Mon 4</th><th>Tue 5</th><th>Wed 6</th><th>Thu 7</th><th>Fri 8</th><th class="col-sat">Sat 9</th><th class="col-sun">Sun 10</th>
         </tr></thead>
         <tbody>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="off-dash">—</span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-asat">Regular Shift</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-changes">Changes</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
-            <td class="col-mon"><span class="dot dot-green"></span></td>
-            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sat">OT – Sat</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
-            <td class="col-sun"><span class="off-dash">—</span></td>
-          </tr>
-          <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Michael ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sun">OT – Sun</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Bridget</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Label</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
@@ -525,42 +546,48 @@
     <!-- MLS WEEK 2 -->
     <div class="week-panel" id="mls-week-2">
       <div class="week-header">
-        <span class="week-title-main">March 30 – April 5, 2026</span>
-        <span class="week-title-sub">Week 2 of 5</span>
+        <span class="week-title-main">May 11 – 17, 2026</span>
+        <span class="week-title-sub">Week 2 of 6</span>
       </div>
       <table class="schedule-table">
         <thead><tr>
           <th class="col-agent">Agent</th>
-          <th class="col-mon">Mon 30</th><th>Tue 31</th><th>Wed Apr 1</th><th>Thu 2</th><th>Fri 3</th>
-          <th class="col-sat">Sat 4</th><th class="col-sun">Sun 5</th>
+          <th class="col-mon">Mon 11</th><th>Tue 12</th><th>Wed 13</th><th>Thu 14</th><th>Fri 15</th><th class="col-sat">Sat 16</th><th class="col-sun">Sun 17</th>
         </tr></thead>
         <tbody>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
-            <td class="col-mon"><span class="off-dash">—</span></td>
-            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-asat">Regular Shift</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
-            <td class="col-sun"><span class="off-dash">—</span></td>
-          </tr>
-          <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Michael ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sun">OT – Sun</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-changes">Changes</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sat">OT – Sat</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Bridget</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Label</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
         </tbody>
@@ -570,39 +597,45 @@
     <!-- MLS WEEK 3 -->
     <div class="week-panel" id="mls-week-3">
       <div class="week-header">
-        <span class="week-title-main">April 6 – 12, 2026</span>
-        <span class="week-title-sub">Week 3 of 5</span>
+        <span class="week-title-main">May 18 – 24, 2026</span>
+        <span class="week-title-sub">Week 3 of 6</span>
       </div>
       <table class="schedule-table">
         <thead><tr>
           <th class="col-agent">Agent</th>
-          <th class="col-mon">Mon 6</th><th>Tue 7</th><th>Wed 8</th><th>Thu 9</th><th>Fri 10</th>
-          <th class="col-sat">Sat 11</th><th class="col-sun">Sun 12</th>
+          <th class="col-mon">Mon 18</th><th>Tue 19</th><th>Wed 20</th><th>Thu 21</th><th>Fri 22</th><th class="col-sat">Sat 23</th><th class="col-sun">Sun 24</th>
         </tr></thead>
         <tbody>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
-            <td class="col-mon"><span class="off-dash">—</span></td>
-            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-asat">Regular Shift</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
-            <td class="col-sun"><span class="off-dash">—</span></td>
-          </tr>
-          <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sat">OT – Sat</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Michael ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sun">OT – Sun</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-changes">Changes</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Bridget</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Label</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
@@ -615,42 +648,48 @@
     <!-- MLS WEEK 4 -->
     <div class="week-panel" id="mls-week-4">
       <div class="week-header">
-        <span class="week-title-main">April 13 – 19, 2026</span>
-        <span class="week-title-sub">Week 4 of 5</span>
+        <span class="week-title-main">May 25 – 31, 2026</span>
+        <span class="week-title-sub">Week 4 of 6</span>
       </div>
       <table class="schedule-table">
         <thead><tr>
           <th class="col-agent">Agent</th>
-          <th class="col-mon">Mon 13</th><th>Tue 14</th><th>Wed 15</th><th>Thu 16</th><th>Fri 17</th>
-          <th class="col-sat">Sat 18</th><th class="col-sun">Sun 19</th>
+          <th class="col-mon">Mon 25</th><th>Tue 26</th><th>Wed 27</th><th>Thu 28</th><th>Fri 29</th><th class="col-sat">Sat 30</th><th class="col-sun">Sun 31</th>
         </tr></thead>
         <tbody>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
-            <td class="col-mon"><span class="off-dash">—</span></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-asat">Regular Shift</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-changes">Changes</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
-          </tr>
-          <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Michael ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
-            <td class="col-mon"><span class="dot dot-green"></span></td>
-            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sun">OT – Sun</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sat">OT – Sat</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Bridget</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Label</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
         </tbody>
@@ -660,39 +699,96 @@
     <!-- MLS WEEK 5 -->
     <div class="week-panel" id="mls-week-5">
       <div class="week-header">
-        <span class="week-title-main">April 20 – 26, 2026</span>
-        <span class="week-title-sub">Week 5 of 5</span>
+        <span class="week-title-main">June 1 – 7, 2026</span>
+        <span class="week-title-sub">Week 5 of 6</span>
       </div>
       <table class="schedule-table">
         <thead><tr>
           <th class="col-agent">Agent</th>
-          <th class="col-mon">Mon 20</th><th>Tue 21</th><th>Wed 22</th><th>Thu 23</th><th>Fri 24</th>
-          <th class="col-sat">Sat 25</th><th class="col-sun">Sun 26</th>
+          <th class="col-mon">Mon 1</th><th>Tue 2</th><th>Wed 3</th><th>Thu 4</th><th>Fri 5</th><th class="col-sat">Sat 6</th><th class="col-sun">Sun 7</th>
         </tr></thead>
         <tbody>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
-            <td class="col-mon"><span class="off-dash">—</span></td>
-            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-asat">Regular Shift</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
-            <td class="col-sun"><span class="off-dash">—</span></td>
-          </tr>
-          <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">10:00 AM – 7:30 PM</div></div></td>
-            <td class="col-mon"><span class="dot dot-green"></span></td>
-            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sat">OT – Sat</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
-            <td class="col-sun"><span class="off-dash">—</span></td>
-          </tr>
-          <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Michael ★</div><div class="agent-cell-hours">8:30 AM – 6:00 PM</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-ot-sun">OT – Sun</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-changes">Changes</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Bridget</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Label</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MLS WEEK 6 -->
+    <div class="week-panel" id="mls-week-6">
+      <div class="week-header">
+        <span class="week-title-main">June 8 – 14, 2026</span>
+        <span class="week-title-sub">Week 6 of 6</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 8</th><th>Tue 9</th><th>Wed 10</th><th>Thu 11</th><th>Fri 12</th><th class="col-sat">Sat 13</th><th class="col-sun">Sun 14</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Alvaro</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Lindy</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Karinna</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-changes">Changes</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Bridget</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-listings">Listings</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Label</div><div class="agent-cell-hours">9:00 AM – 6:30 PM</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
@@ -708,11 +804,11 @@
     <div class="section-label" style="padding:0;margin-bottom:14px;">Rules</div>
     <div class="rules-box">
       <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>All PTO requires <strong>advance approval</strong> and a coverage plan before it is confirmed</span></div>
-      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>OT rate is <strong>time and a half</strong> — e.g. $4.06/hr → $6.09/hr · applies to Lindy & Karinna (Sat) and Michael (Sun)</span></div>
-      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Alvaro's Saturday is his <strong>regular work day</strong> — no OT applies</span></div>
-      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Michael has <strong>agreed to every Sunday</strong> — standing commitment for the full cycle</span></div>
-      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Lindy covers <strong>odd weeks</strong> (1, 3, 5) · Karinna covers <strong>even weeks</strong> (2, 4) on Saturday</span></div>
-      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Cycle <strong>repeats after Week 5</strong> — next cycle begins the week of April 27</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>OT rate is <strong>time and a half</strong> — applies to all Saturday and Sunday shifts for all agents</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Saturday always has <strong>2 agents on duty</strong> — one handling Changes, one handling Listings</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Label covers <strong>Listings on Sat Weeks 2 &amp; 4</strong> — OT time and a half applies</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Alvaro works <strong>Monday – Friday</strong> every week · was off May 4 only (Week 1 exception)</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-orange"></div><span>Cycle <strong>repeats after Week 6</strong> — next cycle begins the week of June 15</span></div>
     </div>
   </div>
 
@@ -727,98 +823,86 @@
   <!-- CS Agent Cards -->
   <div class="section" style="margin-top:32px;">
     <div class="section-label">Team overview</div>
-    <div class="agents-grid agents-grid-5">
+    <div class="agents-grid">
 
       <div class="agent-card">
         <div class="agent-name">Giebelle</div>
-        <div class="agent-hours">9:00 AM – 7:00 PM</div>
+        <div class="agent-hours">9:00 AM – 6:30 PM</div>
         <div class="agent-meta">
           <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
-          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">2 &amp; 5</span></div>
-          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 3</span></div>
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1, 3 &amp; 5</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT weeks</span><span class="v">2 &amp; 4</span></div>
           <div class="agent-divider"></div>
-          <div class="agent-ot ot-amber">Time &amp; a half · 3 OT shifts/cycle</div>
+          <div class="agent-ot ot-amber">Time &amp; a half · 5 OT shifts/cycle</div>
         </div>
       </div>
 
       <div class="agent-card">
         <div class="agent-name">Kenneth</div>
-        <div class="agent-hours">9:00 AM – 7:00 PM</div>
+        <div class="agent-hours">9:00 AM – 6:30 PM</div>
         <div class="agent-meta">
           <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
-          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1 &amp; 3</span></div>
-          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 4</span></div>
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1, 4 &amp; 6</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT weeks</span><span class="v">3 &amp; 5</span></div>
           <div class="agent-divider"></div>
-          <div class="agent-ot ot-amber">Time &amp; a half · 3 OT shifts/cycle</div>
+          <div class="agent-ot ot-amber">Time &amp; a half · 5 OT shifts/cycle</div>
         </div>
       </div>
 
       <div class="agent-card">
         <div class="agent-name">Mark</div>
-        <div class="agent-hours">8:30 AM – 6:30 PM</div>
+        <div class="agent-hours">9:00 AM – 6:30 PM</div>
         <div class="agent-meta">
           <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
-          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">1 &amp; 4</span></div>
-          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 2</span></div>
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">2, 3 &amp; 6</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 1</span></div>
           <div class="agent-divider"></div>
-          <div class="agent-ot ot-amber">Time &amp; a half · 3 OT shifts/cycle</div>
+          <div class="agent-ot ot-amber">Time &amp; a half · 4 OT shifts/cycle</div>
         </div>
       </div>
 
       <div class="agent-card">
         <div class="agent-name">Warren</div>
-        <div class="agent-hours">8:30 AM – 6:30 PM</div>
+        <div class="agent-hours">9:00 AM – 6:30 PM</div>
         <div class="agent-meta">
           <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
-          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">3 &amp; 5</span></div>
-          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 1</span></div>
+          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">2, 4 &amp; 5</span></div>
+          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 6</span></div>
           <div class="agent-divider"></div>
-          <div class="agent-ot ot-amber">Time &amp; a half · 3 OT shifts/cycle</div>
+          <div class="agent-ot ot-amber">Time &amp; a half · 4 OT shifts/cycle</div>
         </div>
       </div>
 
-      <div class="agent-card">
-        <div class="agent-name">Rudy</div>
-        <div class="agent-hours">9:00 AM – 7:00 PM</div>
-        <div class="agent-meta">
-          <div class="agent-meta-row"><span class="k">Schedule</span><span class="v">Mon – Fri</span></div>
-          <div class="agent-meta-row"><span class="k">Sat OT weeks</span><span class="v">2 &amp; 4</span></div>
-          <div class="agent-meta-row"><span class="k">Sun OT week</span><span class="v">Week 5</span></div>
-          <div class="agent-divider"></div>
-          <div class="agent-ot ot-amber">Time &amp; a half · 3 OT shifts/cycle</div>
-        </div>
-      </div>
-
-    </div>
+    </div>    </div>
 
     <!-- CS Week Nav -->
     <div class="section-label">Weekly schedule</div>
     <div class="week-nav">
-      <button class="week-btn active" onclick="showWeek('cs',1)">Week 1 · Mar 23–29</button>
-      <button class="week-btn" onclick="showWeek('cs',2)">Week 2 · Mar 30–Apr 5</button>
-      <button class="week-btn" onclick="showWeek('cs',3)">Week 3 · Apr 6–12</button>
-      <button class="week-btn" onclick="showWeek('cs',4)">Week 4 · Apr 13–19</button>
-      <button class="week-btn" onclick="showWeek('cs',5)">Week 5 · Apr 20–26</button>
-    </div>
+      <button class="week-btn active" onclick="showWeek('cs',1)">Week 1 · May 4–10</button>
+      <button class="week-btn" onclick="showWeek('cs',2)">Week 2 · May 11–17</button>
+      <button class="week-btn" onclick="showWeek('cs',3)">Week 3 · May 18–24</button>
+      <button class="week-btn" onclick="showWeek('cs',4)">Week 4 · May 25–31</button>
+      <button class="week-btn" onclick="showWeek('cs',5)">Week 5 · Jun 1–7</button>
+      <button class="week-btn" onclick="showWeek('cs',6)">Week 6 · Jun 8–14</button>    </div>
 
     <!-- CS WEEK 1 -->
     <div class="week-panel active" id="cs-week-1">
       <div class="week-header">
-        <span class="week-title-main">March 23 – 29, 2026</span>
-        <span class="week-title-sub">Week 1 of 5</span>
+        <span class="week-title-main">May 4 – 10, 2026</span>
+        <span class="week-title-sub">Week 1 of 6</span>
       </div>
       <table class="schedule-table">
         <thead><tr>
           <th class="col-agent">Agent</th>
-          <th class="col-mon">Mon 23</th><th>Tue 24</th><th>Wed 25</th><th>Thu 26</th><th>Fri 27</th>
-          <th class="col-sat">Sat 28</th><th class="col-sun">Sun 29</th>
+          <th class="col-mon">Mon 4</th><th>Tue 5</th><th>Wed 6</th><th>Thu 7</th><th>Fri 8</th>
+          <th class="col-sat">Sat 9</th><th class="col-sun">Sun 10</th>
         </tr></thead>
         <tbody>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -832,18 +916,11 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
-            <td class="col-sun"><span class="off-dash">—</span></td>
-          </tr>
-          <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
-            <td class="col-mon"><span class="dot dot-green"></span></td>
-            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
             <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-tickets">Tickets Only</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
@@ -856,22 +933,22 @@
     <!-- CS WEEK 2 -->
     <div class="week-panel" id="cs-week-2">
       <div class="week-header">
-        <span class="week-title-main">March 30 – April 5, 2026</span>
-        <span class="week-title-sub">Week 2 of 5</span>
+        <span class="week-title-main">May 11 – 17, 2026</span>
+        <span class="week-title-sub">Week 2 of 6</span>
       </div>
       <table class="schedule-table">
         <thead><tr>
           <th class="col-agent">Agent</th>
-          <th class="col-mon">Mon 30</th><th>Tue 31</th><th>Wed Apr 1</th><th>Thu 2</th><th>Fri 3</th>
-          <th class="col-sat">Sat 4</th><th class="col-sun">Sun 5</th>
+          <th class="col-mon">Mon 11</th><th>Tue 12</th><th>Wed 13</th><th>Thu 14</th><th>Fri 15</th>
+          <th class="col-sat">Sat 16</th><th class="col-sun">Sun 17</th>
         </tr></thead>
         <tbody>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
-            <td class="col-sun"><span class="off-dash">—</span></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-tickets">Tickets Only</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Kenneth</div></div></td>
@@ -884,18 +961,11 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-tickets">Tickets Only</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
-          </tr>
-          <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
-            <td class="col-mon"><span class="dot dot-green"></span></td>
-            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
@@ -908,46 +978,39 @@
     <!-- CS WEEK 3 -->
     <div class="week-panel" id="cs-week-3">
       <div class="week-header">
-        <span class="week-title-main">April 6 – 12, 2026</span>
-        <span class="week-title-sub">Week 3 of 5</span>
+        <span class="week-title-main">May 18 – 24, 2026</span>
+        <span class="week-title-sub">Week 3 of 6</span>
       </div>
       <table class="schedule-table">
         <thead><tr>
           <th class="col-agent">Agent</th>
-          <th class="col-mon">Mon 6</th><th>Tue 7</th><th>Wed 8</th><th>Thu 9</th><th>Fri 10</th>
-          <th class="col-sat">Sat 11</th><th class="col-sun">Sun 12</th>
+          <th class="col-mon">Mon 18</th><th>Tue 19</th><th>Wed 20</th><th>Thu 21</th><th>Fri 22</th>
+          <th class="col-sat">Sat 23</th><th class="col-sun">Sun 24</th>
         </tr></thead>
         <tbody>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-tickets">Tickets Only</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Kenneth</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
-            <td class="col-sun"><span class="off-dash">—</span></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-tickets">Tickets Only</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="off-dash">—</span></td>
-          </tr>
-          <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
-            <td class="col-mon"><span class="dot dot-green"></span></td>
-            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
@@ -960,14 +1023,14 @@
     <!-- CS WEEK 4 -->
     <div class="week-panel" id="cs-week-4">
       <div class="week-header">
-        <span class="week-title-main">April 13 – 19, 2026</span>
-        <span class="week-title-sub">Week 4 of 5</span>
+        <span class="week-title-main">May 25 – 31, 2026</span>
+        <span class="week-title-sub">Week 4 of 6</span>
       </div>
       <table class="schedule-table">
         <thead><tr>
           <th class="col-agent">Agent</th>
-          <th class="col-mon">Mon 13</th><th>Tue 14</th><th>Wed 15</th><th>Thu 16</th><th>Fri 17</th>
-          <th class="col-sat">Sat 18</th><th class="col-sun">Sun 19</th>
+          <th class="col-mon">Mon 25</th><th>Tue 26</th><th>Wed 27</th><th>Thu 28</th><th>Fri 29</th>
+          <th class="col-sat">Sat 30</th><th class="col-sun">Sun 31</th>
         </tr></thead>
         <tbody>
           <tr>
@@ -975,6 +1038,51 @@
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-tickets">Tickets Only</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Kenneth</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sun"><span class="off-dash">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CS WEEK 5 -->
+    <div class="week-panel" id="cs-week-5">
+      <div class="week-header">
+        <span class="week-title-main">June 1 – 7, 2026</span>
+        <span class="week-title-sub">Week 5 of 6</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr>
+          <th class="col-agent">Agent</th>
+          <th class="col-mon">Mon 1</th><th>Tue 2</th><th>Wed 3</th><th>Thu 4</th><th>Fri 5</th>
+          <th class="col-sat">Sat 6</th><th class="col-sun">Sun 7</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
+            <td class="col-mon"><span class="dot dot-green"></span></td>
+            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
@@ -988,18 +1096,11 @@
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
-            <td class="col-sun"><span class="off-dash">—</span></td>
-          </tr>
-          <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
-            <td class="col-mon"><span class="dot dot-green"></span></td>
-            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
@@ -1009,49 +1110,42 @@
       </table>
     </div>
 
-    <!-- CS WEEK 5 -->
-    <div class="week-panel" id="cs-week-5">
+    <!-- CS WEEK 6 -->
+    <div class="week-panel" id="cs-week-6">
       <div class="week-header">
-        <span class="week-title-main">April 20 – 26, 2026</span>
-        <span class="week-title-sub">Week 5 of 5</span>
+        <span class="week-title-main">June 8 – 14, 2026</span>
+        <span class="week-title-sub">Week 6 of 6</span>
       </div>
       <table class="schedule-table">
         <thead><tr>
           <th class="col-agent">Agent</th>
-          <th class="col-mon">Mon 20</th><th>Tue 21</th><th>Wed 22</th><th>Thu 23</th><th>Fri 24</th>
-          <th class="col-sat">Sat 25</th><th class="col-sun">Sun 26</th>
+          <th class="col-mon">Mon 8</th><th>Tue 9</th><th>Wed 10</th><th>Thu 11</th><th>Fri 12</th>
+          <th class="col-sat">Sat 13</th><th class="col-sun">Sun 14</th>
         </tr></thead>
         <tbody>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Giebelle</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
+            <td class="col-sat"><span class="off-dash">—</span></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Kenneth</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="off-dash">—</span></td>
+            <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
             <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Mark</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
-            <td class="col-sat"><span class="off-dash">—</span></td>
-            <td class="col-sun"><span class="off-dash">—</span></td>
-          </tr>
-          <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
-            <td class="col-mon"><span class="dot dot-green"></span></td>
-            <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="pill pill-cs-calls">Calls + Tickets</span><span class="ot-time">9:00 AM – 4:00 PM</span></div></td>
             <td class="col-sun"><span class="off-dash">—</span></td>
           </tr>
           <tr>
-            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Rudy</div></div></td>
+            <td class="col-agent"><div class="agent-cell"><div class="agent-cell-name">Warren</div></div></td>
             <td class="col-mon"><span class="dot dot-green"></span></td>
             <td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td><td><span class="dot dot-green"></span></td>
             <td class="col-sat"><span class="off-dash">—</span></td>
@@ -1069,9 +1163,9 @@
       <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>All agents work <strong>Monday–Friday</strong> every week — no exceptions without prior approval</span></div>
       <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>Saturday always requires <strong>exactly 2 agents on duty</strong> (Calls + Tickets)</span></div>
       <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>Sunday agent handles <strong>support tickets only</strong> — no inbound calls on Sundays</span></div>
-      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>OT rate is <strong>time and a half</strong> — e.g. $4.06/hr → $6.09/hr · applies to all Saturday and Sunday shifts</span></div>
-      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>Each agent works <strong>3 OT shifts per cycle</strong> (2 Sat + 1 Sun) — rotation is fair and equal</span></div>
-      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>All PTO requires <strong>advance approval</strong> and a coverage plan · Cycle repeats after Week 5</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>OT rate is <strong>time and a half</strong> — applies to all Saturday and Sunday shifts</span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>Giebelle &amp; Kenneth: <strong>5 OT shifts/cycle</strong> · Mark &amp; Warren: <strong>4 OT shifts/cycle</strong></span></div>
+      <div class="rule-item"><div class="rule-dot rule-dot-blue"></div><span>All PTO requires <strong>advance approval</strong> and a coverage plan · Cycle repeats after Week 6</span></div>
     </div>
   </div>
 
